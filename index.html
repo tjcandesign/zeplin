@@ -13,10 +13,29 @@
     <meta name="theme-color" content="#808080">
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+    <style>
+      :root {
+        --color-historical: #808080;
+        --color-public: #0066cc;
+        --color-institution: #2E8B57;
+        --color-catholic: #800080;
+        --color-legal: #FF0000;
+        --color-education: #FFD700;
+      }
+      body {
+        font-size: 24px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+      @media (prefers-contrast: high) {
+        body { background: white; color: black; }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module" src="main.jsx"></script>
     <noscript>
       <div style="padding: 2rem; text-align: center; font-size: 24px; line-height: 1.5;">
         Please enable JavaScript to view this application.
