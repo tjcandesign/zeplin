@@ -31,6 +31,10 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          VITE_BASE_URL: '/zeplin'
+
+      - name: Configure 404 redirect
+        run: cp dist/index.html dist/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -38,3 +42,4 @@ jobs:
           folder: dist
           clean: true
           branch: gh-pages
+          single-commit: true
