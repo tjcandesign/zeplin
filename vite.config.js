@@ -7,21 +7,13 @@ export default defineConfig({
   base: '/zeplin/',
   build: {
     outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true,
+    sourcemap: false,
+    minify: true,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
-          const ext = info[info.length - 1]
-          if (/\.(css)$/i.test(assetInfo.name)) {
-            return `assets/styles.[hash].${ext}`
-          }
-          return `assets/[name].[hash].${ext}`
-        },
-        chunkFileNames: 'assets/[name].[hash].js',
-        entryFileNames: 'assets/[name].[hash].js'
+        entryFileNames: '[name].[hash].js',
+        chunkFileNames: '[name].[hash].js',
+        assetFileNames: '[name].[hash].[ext]'
       }
     }
   }
