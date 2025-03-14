@@ -13,10 +13,12 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    concurrency: ci-${{ github.ref }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -29,17 +31,12 @@ jobs:
 
       - name: Build project
         run: npm run build
-        env:
-          NODE_ENV: production
-          VITE_BASE_URL: '/zeplin'
 
-      - name: Configure 404 redirect
-        run: cp dist/index.html dist/404.html
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: dist
-          clean: true
-          branch: gh-pages
-          single-commit: true
+        id: deployment
+        uses: actions/deploy-pages@v2
