@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <title>Zeppelin DC | Art Gallery & Premium Art Supplies</title>
     <meta name="description" content="A dual-level art experience in Washington DC, featuring a premium retail store and members-only gallery." />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
@@ -10,13 +10,15 @@
     <!-- High Contrast Mode Support -->
     <meta name="color-scheme" content="light dark">
     <!-- Accessibility Features -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#808080">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./src/main.jsx"></script>
+    <script type="module" src="/src/main.jsx"></script>
     <noscript>
-      <div style="padding: 2rem; text-align: center; font-size: 24px;">
+      <div style="padding: 2rem; text-align: center; font-size: 24px; line-height: 1.5;">
         Please enable JavaScript to view this application.
         <span lang="es" style="display: block; margin-top: 1rem; font-style: italic;">
           Por favor, habilite JavaScript para ver esta aplicación.
