@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Color Coding from Design System */
+  --color-historical: #808080; /* Gray for Historical Context */
+  --color-public: #0066cc; /* Blue for Public Schools */
+  --color-institution: #2E8B57; /* Green for Black Institution Building */
+  --color-catholic: #800080; /* Purple for Catholic Schools */
+  --color-legal: #FF0000; /* Red for Legal Battles */
+  --color-education: #FFD700; /* Gold for Higher Education */
+}
+
+/* Accessibility Features */
+body {
+  font-size: 24px; /* Min 24pt as specified */
+  line-height: 1.5;
+  color: #000;
+  background: #fff;
+}
+
+/* High Contrast Colors */
+.high-contrast {
+  color: #000;
+  background: #fff;
+}
+
+/* Track Layout Structure */
+.timeline-track {
+  height: 14rem; /* 14 inches = 14rem */
+  margin-bottom: 1rem;
+}
+
+/* Event Markers */
+.event-major {
+  content: '●';
+}
+
+.event-minor {
+  content: '○';
+}
+
+.event-pivotal {
+  content: '★';
+}
+
+/* Bilingual Support */
+[lang="es"] {
+  font-style: italic;
+}
+
 @layer base {
   body {
     @apply bg-gallery-50 text-gallery-800;
