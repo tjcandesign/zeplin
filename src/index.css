@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import Tailwind */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
   /* Color Coding from Design System */
@@ -12,42 +13,91 @@
   --color-education: #FFD700; /* Gold for Higher Education */
 }
 
-/* Accessibility Features */
+/* Base Styles */
+html {
+  font-size: 16px;
+}
+
 body {
-  font-size: 24px; /* Min 24pt as specified */
+  font-size: 1.5rem; /* 24px for accessibility */
   line-height: 1.5;
   color: #000;
   background: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* High Contrast Colors */
-.high-contrast {
-  color: #000;
-  background: #fff;
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  body {
+    color: #000;
+    background: #fff;
+  }
 }
 
 /* Track Layout Structure */
 .timeline-track {
   height: 14rem; /* 14 inches = 14rem */
   margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-historical);
 }
 
 /* Event Markers */
-.event-major {
+.event {
+  position: relative;
+}
+
+.event-major::before {
   content: '●';
+  color: currentColor;
 }
 
-.event-minor {
+.event-minor::before {
   content: '○';
+  color: currentColor;
 }
 
-.event-pivotal {
+.event-pivotal::before {
   content: '★';
+  color: currentColor;
+}
+
+.event-connection {
+  border-left: 2px solid currentColor;
+  height: 100%;
+}
+
+.timeline-line {
+  border-top: 2px solid currentColor;
 }
 
 /* Bilingual Support */
 [lang="es"] {
   font-style: italic;
+}
+
+/* Accessibility Features */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Focus Styles */
+:focus {
+  outline: 3px solid var(--color-public);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    font-size: 12pt;
+  }
+  
+  .timeline-track {
+    page-break-inside: avoid;
+  }
 }
 
 @layer base {
